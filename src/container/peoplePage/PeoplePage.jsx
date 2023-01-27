@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { SWAPI_URL_PEOPLE } from "../../constants/constants"; 
+import WithErrorApi from "../../hockHelper/";
 
 import PeopleList from "../../components/peoplePage/peopleList/index";
 
 import { getSwApiUrlData } from "../../utils/network";
 import { getPeopleId, getPeopleImg } from "../../services/getPeopleData.js";
-import WithErrorApi from "../../hockHelper/";
+
+import { SWAPI_URL_PEOPLE } from "../../constants/constants"; 
 
 
 import styles from "./PeoplePage.module.css";

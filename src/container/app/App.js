@@ -1,14 +1,24 @@
-import cn from "classnames";
-import { getSwApiUrlData } from "../../utils/network";
+// import cn from "classnames";
+import {Routes, BrowserRouter, Route } from "react-router-dom";
 
-import PeoplePage from "../../container/peoplePage/index";
+import PeoplePage from "../../container/peoplePage";
+import HomePage  from "../../container/homePage";
+import Header from "../../components/header/Header";
+
 
 import styles from './App.module.css';
 
 function App() { 
   return (   
    <>
-   <PeoplePage />    
+   <BrowserRouter>
+   <Header />  
+   
+    <Routes>
+    <Route path="/" element={ <HomePage /> }></Route>
+    <Route path="/people" element={ <PeoplePage /> }></Route> 
+    </Routes>
+    </BrowserRouter>       
    </>
   );
 }
