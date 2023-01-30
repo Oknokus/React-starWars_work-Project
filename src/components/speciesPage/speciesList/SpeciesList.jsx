@@ -12,8 +12,8 @@ const SpeciesList = ({ speciesState }) => {
                     <li className={ styles.list__item } key={ id }>
                         <a href="#">
                         <img className={ styles.person__photo } src= { img } alt={ name } />
-                        <p>{ name }</p>
-                        <p>{ language }</p>   
+                        <p>Name: { name }</p>
+                        <p>Language: { language }</p>   
                         </a>                                                 
                     </li>
                 )

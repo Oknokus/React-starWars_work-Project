@@ -10,7 +10,7 @@ const PeopleList = ({ peopleState }) => {
                 <li className={ styles.list__item } key={ id }>
                     <a href="#">
                         <img className={ styles.person__photo } src={ img } alt={ name } />
-                        <p>{name}</p>
+                        <p>Name: {name}</p>
                     </a>
                 </li>
             )}
