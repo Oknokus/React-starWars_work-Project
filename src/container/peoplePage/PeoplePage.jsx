@@ -16,12 +16,12 @@ import styles from "./PeoplePage.module.css";
 const PeoplePage = ({ setErrorApi }) => {
     const[peopleState, setPeopleState] = useState(null);
 
-    const getData = async(url) => {
-        const data = await getSwApiUrlData(url);
-        
+    const getDataPeople = async(url) => {
+        const dataPeople = await getSwApiUrlData(url);  
+                
 
-        if(data) {
-        const peopleList = data.results.map(({ name, url }) => {  
+        if(dataPeople) {
+        const peopleList = dataPeople.results.map(({ name, url }) => {  
             
             const id = getPeopleId(url);
             const img = getPeopleImg(id);
@@ -43,12 +43,12 @@ const PeoplePage = ({ setErrorApi }) => {
 } 
 
     useEffect(() => {
-        getData(SWAPI_URL_PEOPLE);
+        getDataPeople(SWAPI_URL_PEOPLE);
     }, []);
 
     return(
         <>
-         { peopleState && <PeopleList peopleState={peopleState} /> }       
+         { peopleState && <PeopleList peopleState={ peopleState } /> }       
         </>
     )
 }

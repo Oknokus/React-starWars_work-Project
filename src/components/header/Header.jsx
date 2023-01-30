@@ -10,9 +10,12 @@ const Header = () => {
             <ul className={styles.list__container}>
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/people">People</NavLink></li>
+                <li><NavLink to="/species">Species</NavLink></li>
+                <li><NavLink to="/starships">Star Ships</NavLink></li>
             </ul>
         </div>
         </>
     )
 }
 export default Header;
+
