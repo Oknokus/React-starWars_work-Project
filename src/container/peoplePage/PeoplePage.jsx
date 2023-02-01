@@ -8,7 +8,7 @@ import PeopleList from "../../components/peoplePage/peopleList";
 import PeopleNavigation from "../../components/peoplePage/peopleNavigation";
 
 import { getSwApiUrlData } from "../../utils/network";
-import { getPeopleId, getPeopleImg, getPeoplePageId } from "../../services/getPeopleData.js";
+import { getPeopleId, getPeopleImg, getPageId } from "../../services/getContainerData.js";
 
 import { SWAPI_URL_PEOPLE, SWAPI_URL_PATH_PAGE } from "../../constants/constants"; 
 
@@ -44,7 +44,7 @@ const PeoplePage = ({ setErrorApi }) => {
         })       
 
         setPeopleState(peopleList);
-        setNowPage(getPeoplePageId(url));
+        setNowPage(getPageId(url));
         setNextPage(dataPeople.next);
         setPreviousPage(dataPeople.previous);
 
@@ -61,8 +61,8 @@ const PeoplePage = ({ setErrorApi }) => {
 
     return(
         <>
-         { peopleState && <PeopleNavigation nowPage={ nowPage } nextPage={ nextPage }  previousPage={ previousPage } getDataPeople={ getDataPeople } /> }     
-         { peopleState && <PeopleList peopleState={ peopleState }/> }       
+            { peopleState && <PeopleNavigation nowPage={ nowPage } nextPage={ nextPage }  previousPage={ previousPage } getDataPeople={ getDataPeople } /> }     
+            { peopleState && <PeopleList peopleState={ peopleState }/> }       
         </>
     )
 }

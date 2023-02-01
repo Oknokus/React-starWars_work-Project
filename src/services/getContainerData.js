@@ -45,7 +45,10 @@ export const getVehiclesImg = (id) =>
 
 
     // Number page
-export const getPeoplePageId = (url) => {
+export const getPageId = (url) => {
    const pos = url.lastIndexOf(SWAPI_URL_PATH_PAGE);
    return (Number(url.slice(pos+SWAPI_URL_PATH_PAGE.length, url.length)));   
-}
+};
+
+
+

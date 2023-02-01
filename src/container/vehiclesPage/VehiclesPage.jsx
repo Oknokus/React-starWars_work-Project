@@ -1,25 +1,32 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
+import { UseQueryParam } from "../../hooks/UseQueryParam";
 import WithErrorApi from '../../hockHelper/WithErrorApi';
 
 import VehiclesList from '../../components/vehiclesPage/vehiclesList';
+import VehiclesNavigation from "../../components/vehiclesPage/vehiclesNavigation";
 
 import { getSwApiUrlData } from "../../utils/network";
-import { getVehicles, getVehiclesImg } from "../../services/getPeopleData";
-import { SWAPI_URL_VEHICLES } from "../../constants/constants";
+import { getVehicles, getVehiclesImg, getPageId } from "../../services/getContainerData";
+import { SWAPI_URL_VEHICLES, SWAPI_URL_PATH_PAGE } from "../../constants/constants";
 
 
 import styles from "./VehiclesPage.module.css";
 
 
-const Vehicles = ({ setErrorApi }) => {
+const VehiclesPage = ({ setErrorApi }) => {
     const [vehiclesState, setVehiclesState] = useState(null);
+    const [nextPage, setNextPage] = useState(null);
+    const [previousPage, setPreviousPage] = useState(null);
+    const [nowPage, setNowPage] = useState(null);
+
+    const queryPage = UseQueryParam();
+    const query = queryPage.get("page");    
 
     const getDataVehicles = async(url) => {
-
         const dataVehicles = await getSwApiUrlData(url);      
-        
+       
         if(dataVehicles) {
             const  vehiclesList = dataVehicles.results.map(({               
                 created,
@@ -45,25 +52,29 @@ const Vehicles = ({ setErrorApi }) => {
              }           
             })       
             setVehiclesState(vehiclesList);  
-            setErrorApi(false)   
+            setNextPage(dataVehicles.next);
+            setPreviousPage(dataVehicles.previous);
+            setNowPage(getPageId(url));
+            setErrorApi(false); 
         } else {
-            setErrorApi(true)
+            setErrorApi(true);
         }
         }
 
     useEffect(() => {
-        getDataVehicles(SWAPI_URL_VEHICLES);
+        getDataVehicles(SWAPI_URL_VEHICLES+SWAPI_URL_PATH_PAGE+query);
     }, [])
     return (
         <>
-        { vehiclesState && <VehiclesList vehiclesState={ vehiclesState } /> }
+            { vehiclesState && <VehiclesNavigation nextPage={ nextPage }  previousPage={ previousPage } nowPage={ nowPage } getDataVehicles={ getDataVehicles } /> }  
+            { vehiclesState && <VehiclesList vehiclesState={ vehiclesState } /> }
         </>        
     )
 }
 
-Vehicles.propTypes = {
+VehiclesPage.propTypes = {
     setErrorApi: PropTypes.func
 }
 
 
-export default WithErrorApi(Vehicles);
+export default WithErrorApi(VehiclesPage);

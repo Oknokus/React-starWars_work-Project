@@ -29,7 +29,8 @@ export const routesConfig = [
     {
         path: "/not-found",      
         element: <NotFoundPage />
-    },{
+    },
+    {
         path: "*",
         element: <NotFoundPage />
     }         

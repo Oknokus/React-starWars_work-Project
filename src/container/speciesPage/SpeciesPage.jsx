@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
+
+import { UseQueryParam } from "../../hooks/UseQueryParam";
 import WithErrorApi from "../../hockHelper";
 
 import SpeciesList from "../../components/speciesPage/speciesList";
+import SpeciesNavigation from "../../components/speciesPage/speciesNavigation"
 
 import { getSwApiUrlData } from "../../utils/network";
-import { getSpeiesId, getSpeciesImg } from "../../services/getPeopleData";
+import { getSpeiesId, getSpeciesImg, getPageId } from "../../services/getContainerData";
  
-import { SWAPI_URL_SPECIES } from "../../constants/constants";
+import { SWAPI_URL_SPECIES, SWAPI_URL_PATH_PAGE } from "../../constants/constants";
 
 
 import styles from './SpeciesPage.module.css';
@@ -16,9 +19,14 @@ import styles from './SpeciesPage.module.css';
 
 const SpeciesPage = ({ setErrorApi }) => {
     const [speciesState, setSpeciesState] = useState(null);
+    const [nextPage, setNextPage] = useState(null);
+    const [previousPage, setPreviousPage] = useState(null);
+    const [nowPage, setNowPage] = useState(null);
+
+    const queryPage = UseQueryParam();
+    const query = queryPage.get("page");    
 
     const getDataSpecies = async(url) => {
-
         const dataSpecies = await getSwApiUrlData(url);    
         
         if(dataSpecies) {
@@ -37,6 +45,9 @@ const SpeciesPage = ({ setErrorApi }) => {
                 }
             })
             setSpeciesState(speciesList);
+            setNextPage(dataSpecies.next);
+            setPreviousPage(dataSpecies.previous);
+            setNowPage(getPageId(url));
             setErrorApi(false);
         } else {
             setErrorApi(true);
@@ -46,12 +57,13 @@ const SpeciesPage = ({ setErrorApi }) => {
     }
 
     useEffect(() => {
-        getDataSpecies(SWAPI_URL_SPECIES);
+        getDataSpecies(SWAPI_URL_SPECIES+SWAPI_URL_PATH_PAGE+query);
     },[])
     
     return (
-        <> 
-         {speciesState && <SpeciesList speciesState= { speciesState } /> } 
+        <>
+            { speciesState && <SpeciesNavigation nextPage={ nextPage }  previousPage={ previousPage } nowPage={ nowPage } getDataSpecies={ getDataSpecies } /> } 
+            { speciesState && <SpeciesList speciesState= { speciesState } /> } 
         </>
     )
 }

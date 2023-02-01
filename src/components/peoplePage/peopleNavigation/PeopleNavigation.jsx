@@ -7,16 +7,16 @@ import styles from "./PeopleNavigation.module.css";
 
 const PeopleNavigation = ({ nowPage, nextPage, previousPage, getDataPeople }) => {
     const handleClickPrevious = (url) => {
-        getDataPeople(previousPage)
+        getDataPeople(previousPage);
     }
 
     const handleClickNext = (url) => {
-        getDataPeople(nextPage)
+        getDataPeople(nextPage);
     }
 
     return (
         <div>
-        <Link to={ `/people/?page=${ nowPage-1 }` } className={styles.link} >
+        <Link to={ `/people/?page=${ nowPage-1 }` } className={styles.link}>
             <button
                 className={styles.buttons}
                 onClick={ handleClickPrevious }
