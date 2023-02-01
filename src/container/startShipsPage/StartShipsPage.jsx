@@ -37,7 +37,7 @@ const StartShipsPage = ({ setErrorApi }) => {
                 id,
                 img
             }
-        })
+        });
     
         setStarShipsState(starShipsList);
         setErrorApi(false);

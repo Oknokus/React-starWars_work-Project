@@ -2,6 +2,7 @@ import HomePage from "../container/homePage/HomePage";
 import PeoplePage from "../container/peoplePage/PeoplePage";
 import SpeciesPage from "../container/speciesPage/SpeciesPage";
 import StartShipsPage from "../container/startShipsPage/StartShipsPage";
+import VehiclesPage from "../container/vehiclesPage";    
 import NotFoundPage from "../container/notFoundPage";
 
 export const routesConfig = [
@@ -20,14 +21,17 @@ export const routesConfig = [
     {
         path: "/starships",      
         element: <StartShipsPage />
-    } ,    
+    } ,
+    {
+        path: "/vehicles",      
+        element: <VehiclesPage />
+    } ,   
     {
         path: "/not-found",      
         element: <NotFoundPage />
-    },
-    {
-        path: "*",      
+    },{
+        path: "*",
         element: <NotFoundPage />
-    }            
+    }         
 ]; 
 

@@ -7,8 +7,7 @@ import styles from "./NotFoundPage.module.css";
 
 
 const NotFoundPage = () => {
-    const location = useLocation(null);
-
+    const location = useLocation()  ;
     return (
         <>
         <img className={ styles.img } src={ notFoundImg } alt="Not Found" />
