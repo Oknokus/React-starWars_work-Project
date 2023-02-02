@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import UiButton from "../../Ui/uButton";
+
 
 import styles from "./PeopleNavigation.module.css";
 
@@ -15,25 +17,13 @@ const PeopleNavigation = ({ nowPage, nextPage, previousPage, getDataPeople }) =>
     }
 
     return (
-        <div>
+        <div className={ styles.container }>
         <Link to={ `/people/?page=${ nowPage-1 }` } className={styles.link}>
-            <button
-                className={styles.buttons}
-                onClick={ handleClickPrevious }
-                disabled={ !previousPage }
-            >
-                Previous
-            </button>
+            <UiButton onClick={ handleClickPrevious } text={ "Previous" } disabled={ !previousPage } />           
         </Link>
 
         <Link to={ `/people/?page=${ nowPage+1 }` } className={styles.link}>
-            <button
-                className={styles.buttons}
-                onClick={ handleClickNext }                
-                disabled={ !nextPage }  
-         >
-                Next                
-            </button>
+            <UiButton  onClick={ handleClickNext } text={ "Next" } disabled={ !nextPage } />  
         </Link>
         </div>
     )

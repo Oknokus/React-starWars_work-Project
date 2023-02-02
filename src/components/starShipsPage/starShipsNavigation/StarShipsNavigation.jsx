@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import UiButton from "../../Ui/uButton";
+
 
 import styles from "./StarShipsNavigation.module.css";
 
@@ -15,25 +17,13 @@ const StarShipsNavigation = ({ nextPage, previousPage, nowPage, getDataStarShips
     };
 
     return (
-        <div>        
+        <div className={ styles.container }>         
             <Link to={ `/starships/?page=${ nowPage-1 }` } className={styles.link}>
-                <button
-                    className={styles.buttons}
-                    onClick={ handleClickPrevious }
-                    disabled={ !previousPage }
-                >
-                    Previous              
-                </button>
+                < UiButton onClick={ handleClickPrevious } text={ "Previous" } disabled={ !previousPage } />                   
             </Link>
             
             <Link to={ `/starships/?page=${ nowPage+1 }` } className={styles.link}>
-                <button
-                    className={styles.buttons}
-                    onClick={ handleClickNext }
-                    disabled={ !nextPage }
-                >
-                    Next              
-                </button>
+                < UiButton onClick={ handleClickNext } text={ "Next" } disabled={ !nextPage } />                
             </Link>
         </div>
     )
