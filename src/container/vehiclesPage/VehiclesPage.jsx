@@ -26,17 +26,18 @@ const VehiclesPage = ({ setErrorApi }) => {
 
     const getDataVehicles = async(url) => {
         const dataVehicles = await getSwApiUrlData(url);      
-       
+      
         if(dataVehicles) {
             const  vehiclesList = dataVehicles.results.map(({               
                 created,
                 edited,
                 length,
-                manufacturermax_atmosphering_speed,
+                manufacturer,
+                max_atmosphering_speed,
                 model,
                 name,
                 url
-            }) => {
+            }) => {                         
                 const id = getVehicles(url);             
                 const img = getVehiclesImg(id)
 
@@ -44,7 +45,8 @@ const VehiclesPage = ({ setErrorApi }) => {
                 created,
                 edited,
                 length,
-                manufacturermax_atmosphering_speed,
+                manufacturer,
+                max_atmosphering_speed,
                 model,
                 name,
                 id,

@@ -8,7 +8,7 @@ import PeopleList from "../../components/peoplePage/peopleList";
 import PeopleNavigation from "../../components/peoplePage/peopleNavigation";
 
 import { getSwApiUrlData } from "../../utils/network";
-import { getPeopleId, getPeopleImg, getPageId } from "../../services/getContainerData.js";
+import { getPeopleId, getPeopleImg, getPageId } from "../../services/getContainerData";
 
 import { SWAPI_URL_PEOPLE, SWAPI_URL_PATH_PAGE } from "../../constants/constants"; 
 
