@@ -4,6 +4,8 @@ import SpeciesPage from "../container/speciesPage/SpeciesPage";
 import StartShipsPage from "../container/startShipsPage/StartShipsPage";
 import VehiclesPage from "../container/vehiclesPage";    
 import NotFoundPage from "../container/notFoundPage";
+import PersonPage from "../components/personPage";
+
 
 export const routesConfig = [
     {
@@ -13,6 +15,10 @@ export const routesConfig = [
     {
         path: "/people",      
         element: <PeoplePage />
+    },
+    {
+        path: "/people/:id",      
+        element: <PersonPage />
     },
     {
         path: "/species",      

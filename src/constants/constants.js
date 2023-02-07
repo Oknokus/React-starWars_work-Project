@@ -25,4 +25,9 @@ export const VISIAL_GUIDE_URL_PATH_VEHICLES = "vehicles/";
 export const VISIAL_GUIDE_EXTENSION = ".jpg";
 
 
+// PersonPage id
+export const PERSON_PAGE_PATH_ID = "http://localhost:3000/people/";
+
+
+
 
