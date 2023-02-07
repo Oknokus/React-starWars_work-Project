@@ -23,7 +23,11 @@ export const routesConfig = [
     {
         path: "/species",      
         element: <SpeciesPage />
-    } ,
+    },
+    // {
+    //     path: "/species/:id",      
+    //     element: <SpeciesPage />
+    // } ,
     {
         path: "/starships",      
         element: <StartShipsPage />

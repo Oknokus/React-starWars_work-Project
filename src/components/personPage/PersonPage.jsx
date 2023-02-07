@@ -5,6 +5,7 @@ import WithErrorApi from "../../hockHelper/WithErrorApi";
 
 import PersonInfo from "./personInfo";
 import PersonImg from "./personImg";
+import LinkGoBack from "../../components/linkGoBack";
 
 import { getSwApiUrlData } from "../../utils/network";
 import { personPageId, getPeopleImg } from "../../services/getContainerData";
@@ -52,12 +53,13 @@ const PersonPage = ({ setErrorApi }) => {
 
     return (
         <>
+        <LinkGoBack />
         <div className={ styles.wrapper }>
-        <span className={ styles.person__name }>{ personStateName }</span>
-        <div className={ styles.container }>
-        <PersonImg personStateImg={ personStateImg } personStateName={ personStateName } />    
-        { personStateInfo && <PersonInfo personStateInfo={ personStateInfo } /> } 
-        </div>
+                <span className={ styles.person__name }>{ personStateName }</span>
+            <div className={ styles.container }>
+                <PersonImg personStateImg={ personStateImg } personStateName={ personStateName } />    
+                { personStateInfo && <PersonInfo personStateInfo={ personStateInfo } /> } 
+            </div>
         </div>
         </>
     )
