@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import UiButton from "../../Ui/uButton";
+import UiButton from "../../ui/uButton";
 
 
 import styles from "./PeopleNavigation.module.css";

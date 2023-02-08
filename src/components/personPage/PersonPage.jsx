@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 
 import WithErrorApi from "../../hockHelper/WithErrorApi";
 
 import PersonInfo from "./personInfo";
 import PersonImg from "./personImg";
-import PersonFilms from "./personFilms";
 import LinkGoBack from "../../components/linkGoBack";
+import UiLoading from "../ui/uiLoading";
 
 import { getSwApiUrlData } from "../../utils/network";
 import { personPageId, getPeopleImg } from "../../services/getContainerData";
 
 import {  SWAPI_URL_PEOPLE } from "../../constants/constants";
 
-
 import styles from "./PersonPage.module.css";
+
+const PersonFilms = React.lazy(() => import("./personFilms"));
 
 
 const PersonPage = ({ setErrorApi }) => {
@@ -58,13 +59,20 @@ const PersonPage = ({ setErrorApi }) => {
 
     return (
         <>
-        <LinkGoBack />
+        <LinkGoBack />        
+        
         <div className={ styles.wrapper }>
                 <span className={ styles.person__name }>{ personStateName }</span>
             <div className={ styles.container }>
                 <PersonImg personStateImg={ personStateImg } personStateName={ personStateName } />    
                 { personStateInfo && <PersonInfo personStateInfo={ personStateInfo } /> } 
-                { personStateFilms && <PersonFilms personStateFilms={ personStateFilms } /> }
+                
+                { personStateFilms && (
+                <Suspense fallback={ <UiLoading /> }>
+                <PersonFilms personStateFilms={ personStateFilms } /> 
+                </Suspense>
+                )}
+
             </div>
         </div>
         </>
