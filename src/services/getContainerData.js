@@ -55,6 +55,14 @@ export const personPageId = (url) => {
     return id   
  };
 
+ export const fethUrlFilms = async(arr) => {
+    const result = await Promise.all(arr.map(url => {
+        return (fetch(url)).then(url => url.json())    
+    }));
+
+    return  result;
+ }; 
+
 
 
 

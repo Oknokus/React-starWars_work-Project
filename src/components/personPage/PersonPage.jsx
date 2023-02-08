@@ -5,6 +5,7 @@ import WithErrorApi from "../../hockHelper/WithErrorApi";
 
 import PersonInfo from "./personInfo";
 import PersonImg from "./personImg";
+import PersonFilms from "./personFilms";
 import LinkGoBack from "../../components/linkGoBack";
 
 import { getSwApiUrlData } from "../../utils/network";
@@ -20,6 +21,7 @@ const PersonPage = ({ setErrorApi }) => {
     const [personStateName, setPersonStateName] = useState(null);
     const [personStateInfo, setPersonStateInfo] = useState(null);
     const [personStateImg, setPersonStateImg] = useState(null);
+    const [personStateFilms, setPersonStateFilms] = useState(null);
 
     useEffect(() => {
         ( async(url) => {
@@ -28,7 +30,7 @@ const PersonPage = ({ setErrorApi }) => {
           
             
             const dataPerson = await getSwApiUrlData(SWAPI_URL_PEOPLE+id);
-
+          
             if(dataPerson) {
             
             setPersonStateName(dataPerson.name);
@@ -42,7 +44,10 @@ const PersonPage = ({ setErrorApi }) => {
                 { title: "Birth_year", data: dataPerson.birth_year }              
             ]
             );
-            setPersonStateImg(getPeopleImg(id))
+            setPersonStateImg(getPeopleImg(id));
+            if(dataPerson.films.length) {
+                setPersonStateFilms(dataPerson.films);
+            };           
             setErrorApi(false);
         } else {
             setErrorApi(true);
@@ -59,6 +64,7 @@ const PersonPage = ({ setErrorApi }) => {
             <div className={ styles.container }>
                 <PersonImg personStateImg={ personStateImg } personStateName={ personStateName } />    
                 { personStateInfo && <PersonInfo personStateInfo={ personStateInfo } /> } 
+                { personStateFilms && <PersonFilms personStateFilms={ personStateFilms } /> }
             </div>
         </div>
         </>
