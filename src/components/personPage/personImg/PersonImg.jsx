@@ -13,31 +13,31 @@ import styles from "./PersonImg.module.css";
 const PersonImg = ({ personStateImg, personStateName, personStateId, favoritesStatePerson, setFaloritesStatePerson }) => { 
     const dispatch = useDispatch();
 
-    const handleClickAdd = () => {
-        dispatch(setFavoritesName({           
+    const dispathFavoritesPeople =() => {
+        if(favoritesStatePerson) {
+            dispatch(deleteFavoritesName(personStateId));
+            setFaloritesStatePerson(false);            
+        } else {
+            dispatch(setFavoritesName({           
                 [personStateId]: {
                     personStateName,
                     personStateImg
                 }            
         }))
         setFaloritesStatePerson(true);
-    }
-
-    const handleClickRemove = () => {
-        dispatch(deleteFavoritesName(personStateId));
-        setFaloritesStatePerson(false);
-    }
+        }
+    };
+    
+   
     return (
         <>
         <div className={ styles.container }>
         <img  className={ styles.photo } key={ personStateName } src={ personStateImg } alt={ personStateName } />       
+        <img  className={styles.favorite}  src={favoritesStatePerson? favoriteYellow : favoriteWhite } onClick={ dispathFavoritesPeople } alt="imgFavorites"/>  
         </div>
-        
-        {favoritesStatePerson ? 
-            <img src={ favoriteYellow } onClick={ handleClickRemove } alt="imgFavorites"/>        
-        :
-            <img src={ favoriteWhite } onClick={ handleClickAdd } alt="imgFavorites"/>
-        }
+               
+             
+
         </>
     )
 }
