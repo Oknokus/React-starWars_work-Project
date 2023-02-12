@@ -14,6 +14,7 @@ const Header = () => {
                 <li><NavLink to="/starships/?page=1">Star Ships</NavLink></li>
                 <li><NavLink to="/vehicles/?page=1">Vehicles</NavLink></li>
                 <li><NavLink to="/not-found">Not Found Page</NavLink></li>
+                <li><NavLink to="/favorites">Favorites</NavLink></li>
             </ul>
         </div>
         </>
