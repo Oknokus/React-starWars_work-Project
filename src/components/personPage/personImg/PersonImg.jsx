@@ -31,13 +31,12 @@ const PersonImg = ({ personStateImg, personStateName, personStateId, favoritesSt
    
     return (
         <>
+
         <div className={ styles.container }>
         <img  className={ styles.photo } key={ personStateName } src={ personStateImg } alt={ personStateName } />       
         <img  className={styles.favorite}  src={favoritesStatePerson? favoriteYellow : favoriteWhite } onClick={ dispathFavoritesPeople } alt="imgFavorites"/>  
         </div>
-               
-             
-
+        
         </>
     )
 }
