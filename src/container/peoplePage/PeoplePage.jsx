@@ -52,7 +52,7 @@ const PeoplePage = ({ setErrorApi }) => {
     } 
     else {
         setErrorApi(true);
-    }  
+    };
 } 
 
     useEffect(() => {
