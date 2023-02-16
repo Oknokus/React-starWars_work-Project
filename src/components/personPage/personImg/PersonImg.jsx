@@ -44,7 +44,7 @@ const PersonImg = ({ personStateImg, personStateName, personStateId, favoritesSt
 PersonImg.propTypes = {
     personStateImg:PropTypes.string,
     personStateName:PropTypes.string,
-    // personStateId:PropTypes.number,
+    personStateId:PropTypes.number,
     favoritesStatePerson:PropTypes.bool,
     setFavoritesStatePerson:PropTypes.func
 
