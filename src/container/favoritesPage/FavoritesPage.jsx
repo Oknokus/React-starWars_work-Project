@@ -28,7 +28,7 @@ const FavoritesPage = () => {
         });
         setPeopleState(favoritesList);
         }
-    },[])
+    },[favoritesState])
    
     return (
         <>

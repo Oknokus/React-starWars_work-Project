@@ -1,6 +1,5 @@
 import ChooseSide from "../../components/homePage/chooseSide";
 
-
 import styles from "./HomePage.module.css";
 
 
