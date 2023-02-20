@@ -7,7 +7,7 @@ import ThemeProvider from "./context/ThemeProvider";
 
 import { store } from "./store/store/store";
 
-import styles from './styles/index.css';
+import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +15,7 @@ root.render(
     <React.StrictMode>
       <ThemeProvider>
        <App />
-      </ThemeProvider>
+       </ThemeProvider>
     </React.StrictMode>
   </Provider>
 );

@@ -35,7 +35,12 @@
 		0 0 2px var(--color-white),
 		0 0 40px var(--color-blue);
 
-	--theme-default-header: #cccc46;
+		/* Theme */
+	--theme-dark-header:	#44443f;
+	--theme-light-header:   #71a7b8;
+	--theme-neitral-header: #adad4e;
+
+	--theme-default-header:var(--theme-dark-header);
 	--theme-default-bgimage: url(../imgBackGround//bg.jpg);
 }
 
