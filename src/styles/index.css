@@ -26,6 +26,7 @@
 
 	--border-radius-small: 3px;
 	--border-radius-medium: 5px;
+	--border-radius-large: 10px;
 
 	--text-shadow-yellow:
 		0 0 2px var(--color-white),
@@ -41,6 +42,16 @@
 	--theme-neitral-header: #adad4e;
 
 	--theme-default-header:var(--theme-dark-header);
+	
+	
+		/* Theme  COLOR
+    --color-light:   #29e52d;
+    --color-dark:    #d82228;
+    --color-neitral: #ffff00;
+
+    --color-shadow-light:   rgba(41, 229, 45, .4);
+    --color-shadow-dark:    rgba(216, 34, 40, .4);
+    --color-shadow-neitral: rgba(224, 224, 81, 0.4); */
 
 
 		/* Theme bg-image*/
