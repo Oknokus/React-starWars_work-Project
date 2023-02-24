@@ -4,7 +4,7 @@ import { getLocalStorage } from "../../utils/localStorage";
 
 import { SET_NAME_FAVORITES, DELETE_NAME_FAVORITES } from "../constantAction/constatnsAction";
 
-const initialState =  getLocalStorage("store");
+const initialState =  getLocalStorage("storePeople");
 
 export const favoritesReducer = (state=initialState, action) => {
     switch (action.type) {

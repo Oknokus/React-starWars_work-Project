@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-
 import { UseQueryParam } from "../../hooks/UseQueryParam";
 import WithErrorApi from "../../hockHelper";
 
@@ -14,7 +13,7 @@ import { getSpeiesId, getSpeciesImg, getPageId } from "../../services/getContain
 import { SWAPI_URL_SPECIES, SWAPI_URL_PATH_PAGE } from "../../constants/constants";
 
 
-import styles from './SpeciesPage.module.css';
+// import styles from './SpeciesPage.module.css';
 
 
 const SpeciesPage = ({ setErrorApi }) => {
@@ -58,7 +57,7 @@ const SpeciesPage = ({ setErrorApi }) => {
 
     useEffect(() => {
         getDataSpecies(SWAPI_URL_SPECIES+SWAPI_URL_PATH_PAGE+query);
-    },[])
+    })
     
     return (
         <>

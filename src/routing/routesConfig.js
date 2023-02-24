@@ -2,7 +2,8 @@ import HomePage from "../container/homePage/HomePage";
 import PeoplePage from "../container/peoplePage/PeoplePage";
 import SpeciesPage from "../container/speciesPage/SpeciesPage";
 import StartShipsPage from "../container/startShipsPage/StartShipsPage";
-import VehiclesPage from "../container/vehiclesPage";    
+import VehiclesPage from "../container/vehiclesPage";
+import SearchPage from "../container/searchPage"    
 import NotFoundPage from "../container/notFoundPage";
 import PersonPage from "../components/personPage";
 import FavoritesPage from "../container/favoritesPage";
@@ -29,11 +30,15 @@ export const routesConfig = [
     {
         path: "/starships",      
         element: <StartShipsPage />
-    } ,
-    {
+    },
+    {    
         path: "/vehicles",      
         element: <VehiclesPage />
-    } ,   
+    },     
+    {
+        path: "/search",      
+        element: <SearchPage />
+    }, 
     {
         path: "/not-found",      
         element: <NotFoundPage />

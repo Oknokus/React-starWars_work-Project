@@ -12,5 +12,5 @@ export const store = createStore(
     );
 
     store.subscribe(()=> {
-        setLocalStorage('store', store.getState().favoritesReducer);
+        setLocalStorage('storePeople', store.getState().favoritesReducer);
     });

@@ -5,13 +5,20 @@ export const SWAPI_URL_PATH_PEOPLE = "people/";
 export const SWAPI_URL_PATH_SPECIES = "species/";
 export const SWAPI_URL_PATH_STARSHIPS = "starships/";
 export const SWAPI_URL_PATH_VEHICLES = "vehicles/";
+
 export const SWAPI_URL_PATH_PAGE = "?page=";
+export const SWAPI_URL_PATH_SEARCH = "?search=";
 
 
 export const SWAPI_URL_PEOPLE = SWAPI_URL+SWAPI_URL_PATH_PEOPLE;
 export const SWAPI_URL_SPECIES = SWAPI_URL+SWAPI_URL_PATH_SPECIES;
 export const SWAPI_URL_STARSHIPS = SWAPI_URL+SWAPI_URL_PATH_STARSHIPS;
 export const SWAPI_URL_VEHICLES = SWAPI_URL+SWAPI_URL_PATH_VEHICLES;
+
+
+// SWAPI SERVER PARAMS SEARCH
+export const SWAPI_URL_SEARHC_PEOPLE = SWAPI_URL+SWAPI_URL_PATH_PEOPLE+SWAPI_URL_PATH_SEARCH;
+
 
 
 // VISIAL GUIDE
@@ -28,6 +35,4 @@ export const VISIAL_GUIDE_EXTENSION = ".jpg";
 // PersonPage id
 export const PERSON_PAGE_PEOPLE_PATH_ID = "http://localhost:3000/people/";
 export const PERSON_PAGE_SPECIES_PATH_ID = "http://localhost:3000/species/";
-
-
 
