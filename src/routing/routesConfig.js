@@ -7,6 +7,7 @@ import SearchPage from "../container/searchPage"
 import NotFoundPage from "../container/notFoundPage";
 import PersonPage from "../components/personPage";
 import FavoritesPage from "../container/favoritesPage";
+import ErrorMessage from "../components/errorMessage";
 
 
 
@@ -38,6 +39,10 @@ export const routesConfig = [
     {
         path: "/search",      
         element: <SearchPage />
+    }, 
+    {
+        path: "/fall",      
+        element: <ErrorMessage />
     }, 
     {
         path: "/not-found",      

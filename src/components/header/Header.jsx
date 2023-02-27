@@ -45,6 +45,7 @@ const Header = () => {
                 <li><NavLink to="/starships/?page=1">Star Ships</NavLink></li>
                 <li><NavLink to="/vehicles/?page=1">Vehicles</NavLink></li>
                 <li><NavLink to="/search">Search</NavLink></li>
+                <li><NavLink to="/fall">Fall</NavLink></li>
                 <li><NavLink to="/not-found">Not Found Page</NavLink></li>             
             </ul>
            <Favorites />
@@ -54,4 +55,5 @@ const Header = () => {
 }
 
 export default Header;
+
 

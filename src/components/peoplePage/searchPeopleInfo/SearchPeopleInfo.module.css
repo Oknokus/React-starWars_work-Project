@@ -4,9 +4,11 @@
     padding: 0;
     list-style-type: none;
 }
+
 .list__item {
 
 }
+
 .list__item a {
     display: inline-flex;
     color: var(--color-black);
@@ -14,6 +16,7 @@
     text-align: center;
     cursor: pointer;
 }
+
 .person__photo {
     width: 70px;
     height: 70px;
@@ -21,6 +24,7 @@
     object-position: center center;
     border-radius: var(--border-radius-small);
 }
+
 .person__name {
     display: flex;
     align-items: center;
@@ -29,6 +33,7 @@
     color: var(--color-white);
     text-shadow: var(--text-shadow-blue);
 }
+
 .person__comment {
     color: var(--color-white);
 }

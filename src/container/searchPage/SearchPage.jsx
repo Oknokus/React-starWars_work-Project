@@ -5,6 +5,7 @@ import { debounce } from 'lodash';
 import WithErrorApi from "../../hockHelper/WithErrorApi";
 
 import SearchPeopleInfo from "../../components/peoplePage/searchPeopleInfo";
+import UiInput from "../../components/ui/uiInput";
 
 import { SWAPI_URL_SEARHC_PEOPLE } from "../../constants/constants";
 
@@ -23,8 +24,7 @@ const SearchPage = ({ setErrorApi }) => {
 
     const getSearcPeopleApi = async(params) => {
         const result = await getSwApiUrlData(SWAPI_URL_SEARHC_PEOPLE+params);
-        console.log(params)  
-
+   
         if(result) {
             const peopleList = result.results.map(({name, url})=> {
                
@@ -46,29 +46,22 @@ const SearchPage = ({ setErrorApi }) => {
     };
   
    const deboncegetSearcPeopleApi = useCallback( 
-   debounce(eventsInput => getSearcPeopleApi(eventsInput), 600),
+   debounce(value => getSearcPeopleApi(value), 600),
    [])
 
     const handleInputChange = (event) => {
-        const eventsInput = event.target.value;
-              
-        setEventInputValue(eventsInput);
-        deboncegetSearcPeopleApi(eventsInput);
+                     
+        setEventInputValue(event);
+        deboncegetSearcPeopleApi(event);
        
     }
 
     return (
         <>
             <h1 className="header__text">SearchPage</h1>
-            <input 
-                className={ styles.input__search }        
-                value={ eventInputValue }
-                onChange={ handleInputChange }
-                placeholder="Input characters's name"              
-                type="text" 
-            />
-        
-        <SearchPeopleInfo statePeopleSearch={ statePeopleSearch } /> 
+           
+            <UiInput classes={ styles.input__search } value={ eventInputValue }  handleInputChange={ handleInputChange } placeholder="Input characters's name" />
+            <SearchPeopleInfo statePeopleSearch={ statePeopleSearch } /> 
         </>
     )
 }

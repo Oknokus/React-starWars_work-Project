@@ -61,6 +61,11 @@
 	--theme-default-bgimage: var(--theme-neitral-bgimage);
 }
 
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -73,11 +78,9 @@ body {
 	background-position: top left;
 	background-attachment: fixed;
 }
-
 img {
 	display: block;
 }
-
 .header__text {
 	line-height: 1.7;
 	font-size: var(--font-size-header);
