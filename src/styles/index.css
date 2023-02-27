@@ -44,16 +44,6 @@
 	--theme-default-header:var(--theme-dark-header);
 	
 	
-		/* Theme  COLOR
-    --color-light:   #29e52d;
-    --color-dark:    #d82228;
-    --color-neitral: #ffff00;
-
-    --color-shadow-light:   rgba(41, 229, 45, .4);
-    --color-shadow-dark:    rgba(216, 34, 40, .4);
-    --color-shadow-neitral: rgba(224, 224, 81, 0.4); */
-
-
 		/* Theme bg-image*/
 	--theme-dark-bgimage:    linear-gradient(to bottom, #1f2f3d, #253240, #2a3644, #303947, #353d4a, #333c47, #313a44, #303941, #293237, #242b2e, #1f2425, #1b1d1d);;
 	--theme-light-bgimage:   linear-gradient(to bottom, #6e8da8, #6884a0, #627b97, #5c728f, #566986, #506783, #4b6580, #45637c, #3f677c, #3d6b7a, #3e6f76, #427272);;
@@ -87,6 +77,29 @@ img {
 	text-shadow: 0 0 2px var(--color-black);
 	color: var(--theme-default-header);
 	transition: color var(--transition);
+}
+
+/***************************************************
+SCROLL
+/***************************************************/
+* {
+	scrollbar-color: rgb(37, 56, 97) rgba(0, 0, 0, .7);
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgb(37, 56, 97);
+	border-radius: 2px;
+}
+::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, .7);
+}
+::-webkit-scrollbar-corner {
+	background-color: rgba(0, 0, 0, .7);	
 }
 
 
