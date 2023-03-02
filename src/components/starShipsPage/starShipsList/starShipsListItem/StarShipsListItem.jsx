@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import starShipsImg from "./imgStarShips/starShipsImg.png"
 
@@ -23,13 +24,13 @@ const StarShipsListItem = ({ starShip }) => {
 
     return (
         <li className={ styles.list__item } key={ id }>
-            <a href="#">
+            <Link to={ `/starships/${ id }` }>
             <img ref={ imgRef } onError={ handleClick } className={ styles.person__photo } src={ img } alt={ name } />
             <p>Name: { name }</p>
             <p>Model: { model }</p>
             <p>Length:{ length }</p>
             <p>Creted: { created }</p>
-            </a>            
+            </Link>            
         </li>
        
     )

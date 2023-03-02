@@ -1,8 +1,17 @@
 import { combineReducers } from "redux";
 
-import { favoritesReducer } from "./favoritesReducer";
+import { 
+    peopleReducer,
+    speciesReducer,
+    starShipsReducer,
+    vehiclesReducer
+
+} from "./favoritesReducer";
 
 
 export default combineReducers({
-    favoritesReducer
+    peopleReducer,
+    speciesReducer,
+    starShipsReducer,
+    vehiclesReducer
 });

@@ -11,6 +11,9 @@ export const store = createStore(
     composeWithDevTools(applyMiddleware(thunk))
     );
 
-    store.subscribe(()=> {
-        setLocalStorage('storePeople', store.getState().favoritesReducer);
+    store.subscribe(()=> {       
+        setLocalStorage("storePerson", store.getState().peopleReducer);
+        setLocalStorage("storeSpecies", store.getState().speciesReducer);
+        setLocalStorage("storeStarShips", store.getState().starShipsReducer);
+        setLocalStorage("storeVehicles", store.getState().vehiclesReducer);
     });

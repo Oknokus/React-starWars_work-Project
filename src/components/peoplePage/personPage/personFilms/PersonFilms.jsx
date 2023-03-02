@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-import { fethUrlFilms }  from "../../../services/getContainerData";
+import { fethUrlFilms }  from "../../../../services/getContainerData";
 
 
 import styles from "./PersonFilms.module.css";

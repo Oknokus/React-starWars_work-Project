@@ -4,27 +4,27 @@ import { useDispatch } from 'react-redux';
 import favoriteWhite from "./imgFavorites/favoriteWhite.png";
 import favoriteYellow from "./imgFavorites/favoriteYellow.png";
 
-import { setFavoritesName, deleteFavoritesName } from "../../../store/action/actionFavorites";
+import { setPeopleName, deletePeopleName } from "../../../../store/action/actionFavorites";
 
 
 import styles from "./PersonImg.module.css";
 
 
-const PersonImg = ({ personStateImg, personStateName, personStateId, favoritesStatePerson, setFaloritesStatePerson }) => { 
+const PersonImg = ({ personStateImg, personStateName, personStateId, favoritesStatePerson, setFavoritesStatePerson }) => { 
     const dispatch = useDispatch();
 
     const dispathFavoritesPeople =() => {
         if(favoritesStatePerson) {
-            dispatch(deleteFavoritesName(personStateId));
-            setFaloritesStatePerson(false);            
+            dispatch(deletePeopleName(personStateId));
+            setFavoritesStatePerson(false);            
         } else {
-            dispatch(setFavoritesName({           
+            dispatch(setPeopleName({           
                 [personStateId]: {
                     personStateName,
                     personStateImg
                 }            
         }))
-        setFaloritesStatePerson(true);
+        setFavoritesStatePerson(true);
         }
     };
     

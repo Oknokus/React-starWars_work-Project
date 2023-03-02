@@ -9,12 +9,11 @@ const SpeciesList = ({ speciesState }) => {
         <ul className={ styles.list__container }>     
         {speciesState &&      
             (
-                speciesState.map(({ name, language, img, id }) => 
+                speciesState.map(({ name, img, id }) => 
                     <li className={ styles.list__item } key={ id }>
-                        <Link to="#">
+                        <Link to={ `/species/${ id }` }>
                         <img className={ styles.person__photo } src= { img } alt={ name } />
-                        <p>Name: { name }</p>
-                        <p>Language: { language }</p>   
+                        <p>Name: { name }</p>                       
                         </Link>                                                 
                     </li>
                 )

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -13,12 +12,24 @@ const Favorites = () => {
 
       const[favoritesAmount, setFavoritesAmount] = useState(0);     
 
-      const favoritesData = useSelector(state => state.favoritesReducer);  
+      const peopleData = useSelector(state => state.peopleReducer);  
+      const speciesData = useSelector(state => state.speciesReducer); 
+   
+      const starShipsData = useSelector(state => state.starShipsReducer);  
+      const vehiclesData = useSelector(state => state.vehiclesReducer);   
     
     useEffect(() => {           
              
-        const favoritesDataLength = Object.keys(favoritesData).length;
-        favoritesDataLength.toString().length > 2 ? setFavoritesAmount("...") : setFavoritesAmount(favoritesDataLength);  
+        const peopleDataLength = Object.keys(peopleData).length;
+        const specieDataLength = Object.keys(speciesData).length;
+        const starShipsDataLength = Object.keys(starShipsData).length;
+        const vehiclesDataLength = Object.keys(vehiclesData).length;
+
+
+        const allDataLength = peopleDataLength+specieDataLength+starShipsDataLength+vehiclesDataLength;
+
+
+        allDataLength.toString().length > 2 ? setFavoritesAmount("...") : setFavoritesAmount(allDataLength);  
        
     })
   

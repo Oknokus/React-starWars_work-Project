@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState,  Suspense } from 'react';
+import { useSelector } from 'react-redux';
 
-import WithErrorApi from "../../hockHelper/WithErrorApi";
+import WithErrorApi from "../../../hockHelper/WithErrorApi";
 
 import PersonInfo from "./personInfo";
 import PersonImg from "./personImg";
-import LinkGoBack from "../../components/linkGoBack";
-import UiLoading from "../ui/uiLoading";
+import LinkGoBack from "../../linkGoBack";
+import UiLoading from "../../ui/uiLoading";
 
-import { getSwApiUrlData } from "../../utils/network";
-import { personPageId, getPeopleImg } from "../../services/getContainerData";
+import { getSwApiUrlData } from "../../../utils/network";
+import { personPageId, getPeopleImg } from "../../../services/getContainerData";
 
-import {  SWAPI_URL_PEOPLE } from "../../constants/constants";
+import {  SWAPI_URL_PEOPLE } from "../../../constants/constants";
+
 
 import styles from "./PersonPage.module.css";
-import { useSelector } from 'react-redux';
+
 
 const PersonFilms = React.lazy(() => import("./personFilms"));
 
@@ -25,9 +27,9 @@ const PersonPage = ({ setErrorApi }) => {
     const [personStateId, setPersonStateId] = useState(null);
     const [personStateImg, setPersonStateImg] = useState(null);
     const [personStateFilms, setPersonStateFilms] = useState(null);
-    const [favoritesStatePerson, setFaloritesStatePerson] = useState(null);
+    const [favoritesStatePerson, setFavoritesStatePerson] = useState(null);
     
-    const favoritesState = useSelector(state => state.favoritesReducer);  
+    const personState = useSelector(state => state.peopleReducer);  
 
     useEffect(() => {
         ( async(url) => {
@@ -55,7 +57,7 @@ const PersonPage = ({ setErrorApi }) => {
             if(dataPerson.films.length) {
                 setPersonStateFilms(dataPerson.films);
             };           
-            favoritesState[id] ? setFaloritesStatePerson(true) : setFaloritesStatePerson(false);  
+            personState[id] ? setFavoritesStatePerson(true) : setFavoritesStatePerson(false);  
             setErrorApi(false);
         } else {
             setErrorApi(true);
@@ -71,7 +73,7 @@ const PersonPage = ({ setErrorApi }) => {
         <div className={ styles.wrapper }>
                 <span className={ styles.person__name }>{ personStateName }</span>
             <div className={ styles.container }>
-                <PersonImg personStateImg={ personStateImg } personStateName={ personStateName } personStateId={personStateId} favoritesStatePerson={ favoritesStatePerson }  setFaloritesStatePerson={ setFaloritesStatePerson }   />    
+                <PersonImg personStateImg={ personStateImg } personStateName={ personStateName } personStateId={personStateId} favoritesStatePerson={ favoritesStatePerson }  setFavoritesStatePerson={ setFavoritesStatePerson }   />    
                 { personStateInfo && <PersonInfo personStateInfo={ personStateInfo } /> } 
                 
                 { personStateFilms && (
