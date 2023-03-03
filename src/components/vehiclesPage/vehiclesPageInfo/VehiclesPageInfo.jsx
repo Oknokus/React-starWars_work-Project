@@ -24,8 +24,7 @@ const VehiclesFilms = React.lazy(() => import("../vehiclesPageInfo/vehiclesFilms
 const VehiclesPageInfo = ({ setErrorApi }) => {
 
     const vehiclesState = useSelector(state => state.vehiclesReducer);
-    console.log(vehiclesState)
-   
+    
     const[vehiclesStateName, setVehiclesStateName]= useState(null);
     const[vehiclesStateInfo, setVehiclesStateInfo]= useState(null);
     const[vehiclesStateImg, setVehiclesImg]= useState(null);
@@ -67,7 +66,7 @@ const VehiclesPageInfo = ({ setErrorApi }) => {
                 setErrorApi(true)
             };
         })()
-    }, [vehiclesState])
+    }, [])
 
 
     return (

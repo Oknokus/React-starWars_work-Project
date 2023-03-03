@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -11,9 +10,6 @@ import VehiclesList from "../../components/vehiclesPage/vehiclesList";
 import styles from "./FavoritesPage.module.css";
 
 const FavoritesPage = () => { 
-   
-
-
     const[peopleState, setPeopleState] = useState([]);
     const[speciesState, setSpeciesState] = useState([]);
     const[starShipsState, setStarShipsState] = useState([]);
@@ -33,15 +29,14 @@ const FavoritesPage = () => {
         
 
         if(peopleArr.length) {
-        const peopleStateList = peopleArr.map(elem => {
+        const peopleStateList = peopleArr.map(elem => {          
             return {
                 id: elem[0],   
                 name: elem[1].personStateName,
                 img: elem[1].personStateImg             
-            }           
-        });      
-
-        setPeopleState(peopleStateList);
+            }                      
+        });   
+         setPeopleState(peopleStateList);
         };
        
 
@@ -53,7 +48,7 @@ const FavoritesPage = () => {
                     img: elem[1].speciesStateImg               
                 }           
             });
-            setSpeciesState(speciesStateList);
+              setSpeciesState(speciesStateList);
             };
 
             
@@ -62,10 +57,10 @@ const FavoritesPage = () => {
                 return {
                     id: elem[0],   
                     name: elem[1].name,
-                    img: elem[1].image           
+                    img: elem[1].image       
                 }           
             });
-            setStarShipsState(starShipsStateList);
+             setStarShipsState(starShipsStateList);
             };
 
             if(vehiclesArr.length) {
@@ -76,18 +71,18 @@ const FavoritesPage = () => {
                         img: elem[1].image               
                     }           
                 });
-                setVehiclesState(vehiclesStateList);
+                   setVehiclesState(vehiclesStateList);
                 };
-    },[])
-   
+    }, [])
+
     return (
         <>
             <h1 className="header__text">Favorites</h1>           
                 <div className={ styles.container }>
                 { peopleState &&  <PeopleList peopleState={ peopleState } /> }
                 { speciesState &&  <SpeciesList speciesState={ speciesState } /> }
-                { starShipsState &&  <StarShipsList peopleState={ starShipsState } /> } 
-                { vehiclesState &&  <VehiclesList vehiclesState={ vehiclesState } /> }
+                { starShipsState &&  <StarShipsList starShipsState={ starShipsState } /> } 
+                { vehiclesState &&  <VehiclesList vehiclesState={ vehiclesState } /> }  
             </div>
         </>
     )

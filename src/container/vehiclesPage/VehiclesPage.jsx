@@ -12,9 +12,6 @@ import { getVehicles, getVehiclesImg, getPageId } from "../../services/getContai
 import { SWAPI_URL_VEHICLES, SWAPI_URL_PATH_PAGE } from "../../constants/constants";
 
 
-import styles from "./VehiclesPage.module.css";
-
-
 const VehiclesPage = ({ setErrorApi }) => {
     const [vehiclesState, setVehiclesState] = useState(null);
     const [nextPage, setNextPage] = useState(null);
@@ -28,13 +25,7 @@ const VehiclesPage = ({ setErrorApi }) => {
         const dataVehicles = await getSwApiUrlData(url);      
       
         if(dataVehicles) {
-            const  vehiclesList = dataVehicles.results.map(({               
-                created,
-                edited,
-                length,
-                manufacturer,
-                max_atmosphering_speed,
-                model,
+            const  vehiclesList = dataVehicles.results.map(({ 
                 name,
                 url
             }) => {                         
@@ -42,12 +33,6 @@ const VehiclesPage = ({ setErrorApi }) => {
                 const img = getVehiclesImg(id)
 
                 return {
-                created,
-                edited,
-                length,
-                manufacturer,
-                max_atmosphering_speed,
-                model,
                 name,
                 id,
                 img

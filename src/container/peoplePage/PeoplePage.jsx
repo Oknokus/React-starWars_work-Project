@@ -13,9 +13,6 @@ import { getPeopleId, getPeopleImg, getPageId } from "../../services/getContaine
 import { SWAPI_URL_PEOPLE, SWAPI_URL_PATH_PAGE } from "../../constants/constants"; 
 
 
-import styles from "./PeoplePage.module.css";
-
-
 const PeoplePage = ({ setErrorApi }) => {
     const[peopleState, setPeopleState] = useState(null);
     const[nextPage, setNextPage] = useState(null);

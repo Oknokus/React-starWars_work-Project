@@ -13,9 +13,6 @@ import { getSpeiesId, getSpeciesImg, getPageId } from "../../services/getContain
 import { SWAPI_URL_SPECIES, SWAPI_URL_PATH_PAGE } from "../../constants/constants";
 
 
-// import styles from './SpeciesPage.module.css';
-
-
 const SpeciesPage = ({ setErrorApi }) => {
     const [speciesState, setSpeciesState] = useState(null);
     const [nextPage, setNextPage] = useState(null);

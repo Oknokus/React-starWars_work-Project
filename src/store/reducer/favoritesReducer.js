@@ -19,6 +19,7 @@ const initialSpeciesShips = getLocalStorage("storeSpecies");
 const initialStateStarShips = getLocalStorage("storeStarShips");
 const initialStateVehicles = getLocalStorage("storeVehicles");
 
+
 export const peopleReducer = (state=initialStatePerson, action) => {
     switch (action.type) {
         case SET_NAME_PEOPLE:

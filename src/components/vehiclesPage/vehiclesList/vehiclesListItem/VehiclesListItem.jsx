@@ -14,29 +14,17 @@ const VehiclesListItem = ({ vehicles }) => {
         imgRef.current.src= vehiclesImg;
     }
 
-    const {
-    created,
-    edited,
-    length,
-    manufacturer,
-    max_atmosphering_speed,
-    model,
-    name,
-    id,
-    img
+    const {   
+        name,
+        id,
+        img
     } = vehicles;
     
     return (
         <li className={ styles.list__item } key={ id }>
         <Link to={`/vehicles/${id}`}>
         <img ref={ imgRef } onError={ handleClickImg } className={ styles.person__photo } src={ img } alt={ name } />
-        <p>Name: { name }</p>
-        <p>Model: { model }</p>
-        <p>Created: { created }</p>
-        <p>Edted: { edited }</p>
-        <p>Speed: { max_atmosphering_speed }</p>
-        <p>Manufacturer: { manufacturer }</p>
-        <p>Length: { length }</p>
+        <p>Name: { name }</p>       
         </Link>                  
     </li>      
     )

@@ -30,7 +30,6 @@ const PersonPage = ({ setErrorApi }) => {
     const [favoritesStatePerson, setFavoritesStatePerson] = useState(null);
     
     const peopleState = useSelector(state => state.peopleReducer);
-    
 
     useEffect(() => {
         ( async() => {
@@ -65,7 +64,7 @@ const PersonPage = ({ setErrorApi }) => {
         };
 
         })(); 
-    }, [peopleState])   
+    }, [])   
 
     return (
         <>

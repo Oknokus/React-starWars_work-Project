@@ -13,12 +13,8 @@ import { getStarShipsId, getStarShipsImg, getPageId } from "../../services/getCo
 import { SWAPI_URL_STARSHIPS, SWAPI_URL_PATH_PAGE } from "../../constants/constants";
 
 
-
-import styles from "./StartShipsPage.module.css";
-
-
 const StartShipsPage = ({ setErrorApi }) => {
-    const [starShipsState, setStarShipsState] = useState(null);
+    const [starShipsState, setStarShipsState] = useState([]);
     const [nextPage, setNextPage] = useState(null);
     const [previousPage, setPreviousPage] = useState(null);
     const [nowPage, setNowPage] = useState(null);
@@ -28,19 +24,15 @@ const StartShipsPage = ({ setErrorApi }) => {
 
     const getDataStarShips = async(url) => {   
         const dataStarships =  await getSwApiUrlData(url);
-
+       
         if(dataStarships) {
-
         const starShipsList = dataStarships.results.map(({ name, url, model, created, length }) => {
-
+           
             const id = getStarShipsId(url);
             const img = getStarShipsImg(id);
-           
+          
             return {
-                name,              
-                model,
-                created,
-                length,
+                name, 
                 id,
                 img
             }
@@ -54,13 +46,12 @@ const StartShipsPage = ({ setErrorApi }) => {
     } else {
         setErrorApi(true);
     }
-    }
-   
+    }   
 
     useEffect(() => {
         getDataStarShips(SWAPI_URL_STARSHIPS+SWAPI_URL_PATH_PAGE+query)
     }, [])
-    
+   
     return ( 
         <>
             { starShipsState &&
