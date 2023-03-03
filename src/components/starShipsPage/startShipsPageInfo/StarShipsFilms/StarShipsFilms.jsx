@@ -18,7 +18,7 @@ const StarShipsFilms = ({ starShipsStateFilms }) => {
             setStarShipsfilmsList(filmList);
                               
         })()
-    },[starShipsStateFilms])  
+    }, [])  
 
     return (
         <>

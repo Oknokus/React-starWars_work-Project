@@ -10,8 +10,7 @@ import styles from "./LinkGoBack.module.css";
 const LinkGoBack = () => {
     const navigate = useNavigate();
     
-    const handleClickBack = (e) => {  
-     
+    const handleClickBack = (e) => {
         navigate(-1)
     }
     return (        

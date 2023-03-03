@@ -29,16 +29,17 @@ const PersonPage = ({ setErrorApi }) => {
     const [personStateFilms, setPersonStateFilms] = useState(null);
     const [favoritesStatePerson, setFavoritesStatePerson] = useState(null);
     
-    const personState = useSelector(state => state.peopleReducer);  
+    const peopleState = useSelector(state => state.peopleReducer);
+    
 
     useEffect(() => {
-        ( async(url) => {
+        ( async() => {
           
             const urlPersonPage = document.location.href;   
             const id = personPageId(urlPersonPage);           
                                
             const dataPerson = await getSwApiUrlData(SWAPI_URL_PEOPLE+id);                   
-                     
+          
             if(dataPerson) {   
                     
             setPersonStateName(dataPerson.name);
@@ -57,14 +58,14 @@ const PersonPage = ({ setErrorApi }) => {
             if(dataPerson.films.length) {
                 setPersonStateFilms(dataPerson.films);
             };           
-            personState[id] ? setFavoritesStatePerson(true) : setFavoritesStatePerson(false);  
+            peopleState[id] ? setFavoritesStatePerson(true) : setFavoritesStatePerson(false);  
             setErrorApi(false);
         } else {
             setErrorApi(true);
         };
 
         })(); 
-    }, [])   
+    }, [peopleState])   
 
     return (
         <>

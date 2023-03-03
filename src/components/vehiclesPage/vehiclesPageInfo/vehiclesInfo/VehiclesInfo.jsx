@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 
 
-import styles from "./SpeciesInfo.module.css";
+import styles from "./VehiclesInfo.module.css";
 
 
-const SpeciesInfo = ({ speciesStateInfo }) => {
+const VehiclesInfo = ({ vehiclesStateInfo }) => {
     return (
         <>
         <div className={ styles.wrapper }>
-        { speciesStateInfo && (
+        { vehiclesStateInfo && (
             <ul className={ styles.list__container }>
-                {speciesStateInfo.map(({ title, data }, index) => (
+                {vehiclesStateInfo.map(({ title, data }, index) => (
                     data && (
                     <li  className={ styles.list__item } key={ index }>
                         <span className={ styles.item__title }>{ title }: { data }</span>
@@ -21,15 +21,14 @@ const SpeciesInfo = ({ speciesStateInfo }) => {
         )
         }        
        </div>
-       </>
+        </>
     )
 }
-SpeciesInfo.propTypes = { 
-    speciesState: PropTypes.array
-}
 
-export default SpeciesInfo;
+VehiclesInfo.propTypes = {
+    vehiclesStateInfo:PropTypes.array
+};
 
 
-          
-  
+
+export default VehiclesInfo;

@@ -5,6 +5,8 @@ import styles from "./PeopleList.module.css";
 
 
 const PeopleList = ({ peopleState }) => {
+    console.log(peopleState);
+    
     return (
         <ul className={ styles.list__container }>
             {peopleState.map(({ id, name, img }) => 

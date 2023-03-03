@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import WithHockHelper from "../../../hockHelper";
 
-import StarShipsInfo from "../startShipsPageInfo";
+import StarShipsInfo from "./StarShipsInfo";
 import StarShipsImage from "./StarShipsImage";
 
 import UiLoading from "../../ui/uiLoading";
@@ -17,78 +17,80 @@ import { starShipsPageId, getStarShipsImg } from "../../../services/getContainer
 import { SWAPI_URL_STARSHIPS } from "../../../constants/constants";
 
 
-import styles from "./StartShipsPageInfo.module.css";
+import styles from "./StarShipsPageInfo.module.css";
 
-// const StarShipsFilms = React.lazy(()=> import("../startShipsPageInfo/StarShipsFilms"));
+const StarShipsFilms = React.lazy(()=> import("../startShipsPageInfo/StarShipsFilms"));
 
-const StartShipsPageInfo = ({ setErrorApi }) => {      
-    const[starShipStateInfo, setStarShipStateInfo]= useState(null);
+const StarShipsPageInfo = ({ setErrorApi }) => {    
+    
+    const starShipsState = useSelector(state => state.starShipsReducer);
+    
+
     const[starShipStateName, setStarShipStateName]= useState(null);
+    const[starShipStateInfo, setStarShipStateInfo]= useState(null);
     const[starShipsStateImg, setsStarShipsImg]= useState(null);
     const[starShipsStateFilms, setStarShipsStateFilms]= useState(null);
     const[starShipsStateId, setStarShipsStateId]= useState(null);
     const[favoritesStateStarShips, setFavoritesStateStarShips] = useState(false);
-
-    const starShipsState = useSelector(state => state.starShipsReducer);
-
     
     useEffect(() => {       
-        ( async() => {   
-
-            const urlStarShipsPage = document.location.href;              
+        ( async() => {  
+            const urlStarShipsPage = document.location.href;  
+                   
             const id = starShipsPageId(urlStarShipsPage);
 
             const dataStarShips = await getSwApiUrlData(SWAPI_URL_STARSHIPS+id); 
-            
-            if(dataStarShips) {
-                setStarShipStateInfo(
-                    [
-                    { title:"Model", data: dataStarShips.model },
-                    { title: "Length", data: dataStarShips.length },
-                    { title: "Edited", data: dataStarShips.edited },
-                    { title: "Created", data: dataStarShips.created },
-                    { title: "Starship_class", data: dataStarShips.starship_class },
-                    { title: "Max_atmosphering_speed", data: dataStarShips.max_atmosphering_speed }
-                ]
-                );                
-                setStarShipStateName(dataStarShips.name);
-                setsStarShipsImg(getStarShipsImg(id));
+               
+                       
+                if(dataStarShips) {                  
+                    setStarShipStateInfo([
+                        { title:"Model", data: dataStarShips.model },
+                        { title: "Length", data: dataStarShips.length },
+                        { title: "Edited", data: dataStarShips.edited },
+                        { title: "Created", data: dataStarShips.created },
+                        { title: "Starship_class", data: dataStarShips.starship_class },
+                        { title: "Max_atmosphering_speed", data: dataStarShips.max_atmosphering_speed }
+                    ]);      
 
-                dataStarShips.films.length && setStarShipsStateFilms(dataStarShips.films);  
+                    setStarShipStateName(dataStarShips.name); 
+                    setsStarShipsImg(getStarShipsImg(id));
+                    setStarShipsStateId(id);
+                    
+                    dataStarShips.films.length && setStarShipsStateFilms(dataStarShips.films);
+                    
 
-                setStarShipsStateId(id);
+                    starShipsState[id] ? setFavoritesStateStarShips(true) : setFavoritesStateStarShips(false);
 
-                starShipsState[id] ? setFavoritesStateStarShips(true) : setFavoritesStateStarShips(false);
-
-                setErrorApi(false);
-            } else {
-                setErrorApi(true);
-            }         
-        })()
-    }, [])
+                    setErrorApi(false);
+                } 
+                else {
+                    setErrorApi(true);
+                };
+        })();
+    }, [starShipsState])  
 
     return (
         <> 
            <LinkGoBack />
 
            <div className={ styles.wrapper }>           
-           <span className={ styles.person__name }>{ starShipStateName }</span>
-           <div className={ styles.container }>
+                    <span className={ styles.person__name }>{ starShipStateName }</span>
+                <div className={ styles.container }>
           
             <StarShipsImage 
-            starShipsStateImg={ starShipsStateImg }  
-            starShipStateName={ starShipStateName } 
-            starShipsStateId={ starShipsStateId } 
-            favoritesStateStarShips={ favoritesStateStarShips } 
-            setFavoritesStateStarShips={ setFavoritesStateStarShips } 
+                starShipsStateImg={ starShipsStateImg }  
+                starShipStateName={ starShipStateName } 
+                starShipsStateId={ starShipsStateId } 
+                favoritesStateStarShips={ favoritesStateStarShips } 
+                setFavoritesStateStarShips={ setFavoritesStateStarShips } 
             /> 
 
-           { starShipStateInfo && <StarShipsInfo starShipStateInfo={ starShipStateInfo } /> }         
-           
+            { starShipStateInfo && <StarShipsInfo starShipStateInfo={ starShipStateInfo } /> }          
+            
            { starShipsStateFilms && 
-            <Suspense fallback={ <UiLoading /> }> (
-            {/* <StarShipsFilms starShipsStateFilms={ starShipsStateFilms } /> ) */}
-            </Suspense> } 
+                <Suspense fallback={ <UiLoading /> }> (
+                 <StarShipsFilms starShipsStateFilms={ starShipsStateFilms } /> ) 
+                </Suspense> }
 
            </div>
            </div> 
@@ -96,9 +98,12 @@ const StartShipsPageInfo = ({ setErrorApi }) => {
     )
 }
 
-StartShipsPageInfo.poropTypes = {
+StarShipsPageInfo.poropTypes = {
     setErrorApi:PropTypes.func
 };
 
 
-export default WithHockHelper(StartShipsPageInfo);
+export default WithHockHelper(StarShipsPageInfo);
+
+
+

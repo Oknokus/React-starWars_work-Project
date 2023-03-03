@@ -58,7 +58,7 @@ const PeoplePage = ({ setErrorApi }) => {
     useEffect(() => {
         getDataPeople(SWAPI_URL_PEOPLE+SWAPI_URL_PATH_PAGE+query);
     }, []);
-
+   
     return(
         <>
             { peopleState && <PeopleNavigation nowPage={ nowPage } nextPage={ nextPage }  previousPage={ previousPage } getDataPeople={ getDataPeople } /> }     

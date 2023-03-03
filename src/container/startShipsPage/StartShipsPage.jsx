@@ -63,8 +63,16 @@ const StartShipsPage = ({ setErrorApi }) => {
     
     return ( 
         <>
-            { starShipsState && <StarShipsNavigation nextPage={ nextPage }  previousPage={ previousPage } nowPage={ nowPage } getDataStarShips={ getDataStarShips } /> }     
-            { starShipsState && <StarShipsList starShipsState={starShipsState} /> }
+            { starShipsState &&
+                <StarShipsNavigation 
+                    nextPage={ nextPage }  
+                    previousPage={ previousPage } 
+                    nowPage={ nowPage } 
+                    getDataStarShips={ getDataStarShips } /> }     
+            
+            { starShipsState && 
+                <StarShipsList 
+                    starShipsState={starShipsState} /> }
         </> 
     )       
 }

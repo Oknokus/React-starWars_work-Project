@@ -13,7 +13,8 @@ import {
     SWAPI_URL_PATH_PAGE,
     PERSON_PAGE_PEOPLE_PATH_ID,
     PERSON_PAGE_SPECIES_PATH_ID,
-    PERSON_PAGE_STARSHPS_PATH_ID 
+    PERSON_PAGE_STARSHPS_PATH_ID,
+    PERSON_PAGE_VEHICLES_PATH_ID 
 } from "../constants/constants";
 
 export const getId = (url, category) => {
@@ -63,6 +64,11 @@ export const personPageId = (url) => {
 
  export const starShipsPageId = (url) => {
     const id = url.replace(PERSON_PAGE_STARSHPS_PATH_ID, "");
+    return Number(id)   
+ };
+
+ export const vehiclesPageId = (url) => {
+    const id = url.replace(PERSON_PAGE_VEHICLES_PATH_ID, "");
     return Number(id)   
  };
 

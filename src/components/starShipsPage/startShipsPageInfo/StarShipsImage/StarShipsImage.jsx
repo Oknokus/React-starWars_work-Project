@@ -39,13 +39,26 @@ const StarShipsImage = ({ starShipsStateImg, starShipStateName, starShipsStateId
             setFavoritesStateStarShips(true);
         }        
     }
-                 
-   
+                    
     return (
         <>
         <div className={ styles.container }>        
-        <img className={ styles.photo } ref={ imageRef } onError={ handleImgError } src={ starShipsStateImg } key={ starShipStateName } alt={ starShipStateName } />         
-        { starShipsStateImg && <img  className={styles.favorite} src={favoritesStateStarShips ? favoriteYellow : favoriteWhite} onClick={ getDispatchPerson } alt={ starShipStateName } /> }
+        <img 
+            className={ styles.photo } 
+            ref={ imageRef } 
+            onError={ handleImgError } 
+            src={ starShipsStateImg } 
+            key={ starShipsStateId } 
+            alt={ starShipStateName } />         
+        { starShipsStateImg && 
+            <img  
+                className={styles.favorite} 
+                src={favoritesStateStarShips ? 
+                favoriteYellow 
+                : 
+                favoriteWhite} 
+                onClick={ getDispatchPerson } 
+                alt={ starShipStateName } /> }
         </div> 
         </>
     )

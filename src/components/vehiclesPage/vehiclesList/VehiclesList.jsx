@@ -12,8 +12,7 @@ const VehiclesList = ({ vehiclesState }) => {
            {vehiclesState.map((vehicles) =>
                 <VehiclesListItem vehicles={ vehicles } key={ vehicles.id }  />)
             }           
-        </ul>     
-    
+        </ul>        
     )
 }
 

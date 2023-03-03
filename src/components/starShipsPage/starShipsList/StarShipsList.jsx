@@ -8,17 +8,18 @@ import styles from "./StarShipsList.module.css";
 
 const StarShipsList = ({ starShipsState }) => {
     return (
-       <ul  className={ styles.list__container }>
-        {starShipsState.map((starShip ) =>
-            <StarShipsListItem starShip={ starShip } key={ starShip.id }/>
-            )
-        }
-       </ul>
+        <>
+        <ul className={ styles.list__container }>
+        {starShipsState.map(( starship ) => 
+            <StarShipsListItem starship={ starship } key={ starship.id } />           
+        )}
+        </ul> 
+        </>
     )
 }
 
 StarShipsList.propTypes = {
-    setErrorApi: PropTypes.array
+    starShipsState: PropTypes.array
 };
 
 export default StarShipsList;

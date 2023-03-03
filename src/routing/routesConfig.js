@@ -8,7 +8,8 @@ import NotFoundPage from "../container/notFoundPage";
 import PersonPage from "../components/peoplePage/personPage";
 import FavoritesPage from "../container/favoritesPage";
 import SpeciesPageInfo from "../components/speciesPage/speciesPageInfo";
-import StartShipsPageInfo from "../components/starShipsPage/startShipsPageInfo";
+import StarShipsPageInfo from "../components/starShipsPage/startShipsPageInfo";
+import VehiclesPageInfo from "../components/vehiclesPage/vehiclesPageInfo";
 import ErrorMessage from "../components/errorMessage";
 
 
@@ -40,12 +41,16 @@ export const routesConfig = [
     },
     {
         path: "/starships/:id",      
-        element: <StartShipsPageInfo />
+        element: <StarShipsPageInfo />
+    },
+    {    
+        path: "/vehicles/:id",      
+        element: <VehiclesPageInfo />
     },
     {    
         path: "/vehicles",      
         element: <VehiclesPage />
-    },     
+    },
     {
         path: "/search",      
         element: <SearchPage />

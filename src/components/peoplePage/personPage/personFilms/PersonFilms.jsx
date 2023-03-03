@@ -39,5 +39,9 @@ const PersonFilms = ({ personStateFilms }) => {
     )
 }
 
+PersonFilms.propTypes = {
+    personStateFilms:PropTypes.array
+}
+
 
 export default PersonFilms;

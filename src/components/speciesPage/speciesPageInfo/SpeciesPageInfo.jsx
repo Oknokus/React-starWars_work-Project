@@ -32,16 +32,17 @@ const SpeciesPageInfo = ({ setErrorApi }) => {
     const [favoritesStateSpecies, setFavoritesStateSpecies] = useState(null);
     
     const speciesState= useSelector(state => state.speciesReducer);  
+   
 
     useEffect(() => {
-        ( async(url) => {
+        ( async() => {
           
             const urlSpeciesPage = document.location.href;              
             const id = speciesPageId(urlSpeciesPage);   
                        
                                
             const dataSpecies = await getSwApiUrlData(SWAPI_URL_SPECIES+id);                   
-                    
+              
             if(dataSpecies) { 
                 setSpeciesStateName(dataSpecies.name);
                 setSpeciesStateInfo(
@@ -51,19 +52,22 @@ const SpeciesPageInfo = ({ setErrorApi }) => {
                 { title: "Eye_colors", data: dataSpecies.eye_colors }                            
             ]
             );
+
             setSpeciesStateImg(getSpeciesImg(id));
             setSpeciesStateId(id);
             if(dataSpecies.films.length) {
                 setSpeciesStateFilms(dataSpecies.films);
-            };           
+            };        
+
             speciesState[id] ? setFavoritesStateSpecies(true) : setFavoritesStateSpecies(false);  
+           
             setErrorApi(false);
         } else {
             setErrorApi(true);
         };
 
         })(); 
-    }, [])   
+    }, [speciesState])   
 
     return (
         <>

@@ -13,8 +13,7 @@ const Favorites = () => {
       const[favoritesAmount, setFavoritesAmount] = useState(0);     
 
       const peopleData = useSelector(state => state.peopleReducer);  
-      const speciesData = useSelector(state => state.speciesReducer); 
-   
+      const speciesData = useSelector(state => state.speciesReducer);    
       const starShipsData = useSelector(state => state.starShipsReducer);  
       const vehiclesData = useSelector(state => state.vehiclesReducer);   
     

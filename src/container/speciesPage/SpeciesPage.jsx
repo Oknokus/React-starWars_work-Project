@@ -57,8 +57,8 @@ const SpeciesPage = ({ setErrorApi }) => {
 
     useEffect(() => {
         getDataSpecies(SWAPI_URL_SPECIES+SWAPI_URL_PATH_PAGE+query);
-    })
-    
+    }, [])
+   
     return (
         <>
             { speciesState && <SpeciesNavigation nextPage={ nextPage }  previousPage={ previousPage } nowPage={ nowPage } getDataSpecies={ getDataSpecies } /> } 

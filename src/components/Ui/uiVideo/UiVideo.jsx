@@ -11,7 +11,7 @@ const UiVideo = ({ src, playbackRate=1.0, classes }) => {
 
     useEffect(() => {
         videoRef.current.playbackRate = playbackRate;
-    },[])
+    }, [playbackRate])
 
     return (
         <video
@@ -27,7 +27,7 @@ const UiVideo = ({ src, playbackRate=1.0, classes }) => {
 
 UiVideo.propTypes = {
     src:PropTypes.string,
-    playbackRate:PropTypes.string, 
+    playbackRate:PropTypes.number, 
     classes:PropTypes.string
 }
 

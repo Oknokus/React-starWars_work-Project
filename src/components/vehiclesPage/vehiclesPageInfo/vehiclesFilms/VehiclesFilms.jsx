@@ -1,29 +1,32 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-import { fethUrlFilms }  from "../../../../services/getContainerData";
+import { fethUrlFilms } from "../../../../services/getContainerData";
 
 
-import styles from "./SpeciesFilms.module.css";
+import styles from "./VehiclesFilms.module.css";
 
 
-const SpeciesFilms = ({ speciesStateFilms }) => {    
-    const[specialFilms, setSpecialFilms] = useState([])
+const VehiclesFilms = ({ vehiclesStateFilms }) => {
+    const[vehiclesFilms, setVehiclesFilms] = useState([])
+    
+    useEffect(()=> {
+        ( async() => {
 
-    useEffect(() => {
-        (async() => {
+            const filmList = await fethUrlFilms(vehiclesStateFilms);
 
-            const filmList =  await fethUrlFilms(speciesStateFilms); 
+            if(filmList) {
+                setVehiclesFilms(filmList);
+            }           
             
-            setSpecialFilms(filmList);
         })();
-    }, []);
+    })
 
     return (
         <>
-            <div className={styles.wrapper}>
+        <div className={styles.wrapper}>
             <ul className={styles.list__container}>
-                {specialFilms
+                {vehiclesFilms
                     .sort((a, z) => a.episode_id - z.episode_id)
                     .map(({ title, episode_id }) =>
                         <li className={styles.list__item} key={episode_id}>
@@ -39,9 +42,8 @@ const SpeciesFilms = ({ speciesStateFilms }) => {
     )
 }
 
-SpeciesFilms.propTypes = {
-    speciesStateFilms:PropTypes.array
-}
+VehiclesFilms.propTypes = {
+    vehiclesStateFilms:PropTypes.array
+};
 
-
-export default SpeciesFilms;
+export default VehiclesFilms;
