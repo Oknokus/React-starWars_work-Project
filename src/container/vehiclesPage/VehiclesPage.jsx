@@ -8,7 +8,7 @@ import VehiclesList from '../../components/vehiclesPage/vehiclesList';
 import VehiclesNavigation from "../../components/vehiclesPage/vehiclesNavigation";
 
 import { getSwApiUrlData } from "../../utils/network";
-import { getVehicles, getVehiclesImg, getPageId } from "../../services/getContainerData";
+import { getVehiclesId, getVehiclesImg, getPageId } from "../../services/getContainerData";
 import { SWAPI_URL_VEHICLES, SWAPI_URL_PATH_PAGE } from "../../constants/constants";
 
 
@@ -29,7 +29,7 @@ const VehiclesPage = ({ setErrorApi }) => {
                 name,
                 url
             }) => {                         
-                const id = getVehicles(url);             
+                const id = getVehiclesId(url);             
                 const img = getVehiclesImg(id)
 
                 return {

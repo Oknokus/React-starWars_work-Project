@@ -28,7 +28,7 @@ export const getId = (url, category) => {
 export const getPeopleId = (url) => getId(url, SWAPI_URL_PATH_PEOPLE);
 export const getSpeiesId = (url) => getId(url, SWAPI_URL_PATH_SPECIES);
 export const getStarShipsId = (url) => getId(url, SWAPI_URL_PATH_STARSHIPS);
-export const getVehicles = (url) => getId(url, SWAPI_URL_PATH_VEHICLES);
+export const getVehiclesId = (url) => getId(url, SWAPI_URL_PATH_VEHICLES);
 
 
 export const getPeopleImg = (id) => 
@@ -72,10 +72,7 @@ export const personPageId = (url) => {
     return Number(id)   
  };
 
-
-
-
-
+ 
  export const fethUrlFilms = async(arr) => {
     const result = await Promise.all(arr.map(url => {
         return (fetch(url)).then(url => url.json())    

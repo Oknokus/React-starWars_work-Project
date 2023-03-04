@@ -6,10 +6,11 @@ import styles from "./SearchPeopleInfo.module.css";
 
 
 const SearchPeopleInfo = ({ statePeopleSearch }) => {  
-    return (
+        return (
     <>
-        {statePeopleSearch.length ? (
+        {statePeopleSearch.length && (            
             <ul className={styles.list__container}>
+                             
                 {statePeopleSearch.map(({ id, name, img }) => 
                     <li className={ styles.list__item } key={ id }>
                         <Link to={ `/people/${ id }` }>
@@ -17,17 +18,15 @@ const SearchPeopleInfo = ({ statePeopleSearch }) => {
                             <p className={ styles.person__name }>{name}</p>
                         </Link>
                     </li>
-                )}
+                )} 
             </ul>)
-            : 
-            <h2 className={styles.person__comment}>No results</h2>
         }
     </>
     )
 }
 
 SearchPeopleInfo.propTypes = { 
-    statePeopleSearch:PropTypes.array
+    statePeopleSearch:PropTypes.array   
 }
 
 export default SearchPeopleInfo;
