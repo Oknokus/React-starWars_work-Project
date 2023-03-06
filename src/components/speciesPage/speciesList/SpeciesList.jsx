@@ -6,6 +6,7 @@ import styles from "./SpeciesList.module.css";
 
 const SpeciesList = ({ speciesState }) => {
     return (
+        <div>
         <ul className={ styles.list__container }>     
         {speciesState &&      
             (
@@ -20,6 +21,7 @@ const SpeciesList = ({ speciesState }) => {
             ) 
             }
         </ul>
+        </div>
     )
 }
 

@@ -7,6 +7,7 @@ import styles from "./PeopleList.module.css";
 const PeopleList = ({ peopleState }) => {
     
     return (
+        <div>
         <ul className={ styles.list__container }>
             {peopleState.map(({ id, name, img }) => 
                 <li className={ styles.list__item } key={ id }>
@@ -16,7 +17,8 @@ const PeopleList = ({ peopleState }) => {
                     </Link>
                 </li>
             )}
-        </ul> 
+        </ul>
+        </div> 
     )
 }
 

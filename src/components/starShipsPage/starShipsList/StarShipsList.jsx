@@ -8,14 +8,14 @@ import styles from "./StarShipsList.module.css";
 
 const StarShipsList = ({ starShipsState }) => {  
     
-    return (
-        <>        
+    return ( 
+        <div>               
         <ul className={ styles.list__container }>
         { starShipsState.map(( starShip ) => 
         <StarShipsListItem starShip={ starShip } key={ starShip.id } /> 
         )}                    
-        </ul> 
-        </>
+        </ul>
+        </div>         
     )
 }
 
