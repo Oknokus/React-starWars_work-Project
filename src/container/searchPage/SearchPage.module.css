@@ -1,0 +1,14 @@
+.input__search {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.container {
+    column-count: 1;
+    margin: var(--spacing-large) 0;    
+    list-style-type: none;
+}
+
+.person__comment {
+    color: var(--color-white);
+}
