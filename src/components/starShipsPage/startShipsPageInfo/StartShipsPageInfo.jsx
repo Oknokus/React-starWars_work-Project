@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState, Suspense,  } from 'react';
 import { useSelector } from 'react-redux';
 
-import WithHockHelper from "../../../hockHelper";
+import { WithErrorApi } from "../../../hockHelper/WithErrorApi";
 
 import StarShipsInfo from "./StarShipsInfo";
 import StarShipsImage from "./StarShipsImage";
@@ -103,7 +103,7 @@ StarShipsPageInfo.poropTypes = {
 };
 
 
-export default WithHockHelper(StarShipsPageInfo);
+export default WithErrorApi(StarShipsPageInfo);
 
 
 

@@ -2,20 +2,22 @@ import { useState } from "react";
 
 import ErrorMessage from "../components/errorMessage";
 
-const WithErrorApi = View => {
-    return props => {
+ export const WithErrorApi = (View) => {
+    return function WithError(props) {
+       
         const [errorApi, setErrorApi] = useState(false);
-        return (
+        return  (           
             <>
-            {errorApi ?
-            <ErrorMessage /> : (
-            <View
-            setErrorApi={ setErrorApi }
-            {...props}
-            />)
-            }
+                {errorApi ?
+                    <ErrorMessage /> : (
+                    <View
+                        setErrorApi={ setErrorApi }
+                        {...props}
+                    />)
+                }
             </>
-        ) 
-    }
+        )     
+}              
 }
-export default WithErrorApi;    
+
+    

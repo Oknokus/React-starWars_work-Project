@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState,  Suspense } from 'react';
 
-import WithErrorApi from "../../../hockHelper/WithErrorApi";
+import { WithErrorApi } from "../../../hockHelper/WithErrorApi";
 
 import SpeciesInfo from "../speciesPageInfo/speciesInfo";
 import SpeciesImg from "./speciesImg";

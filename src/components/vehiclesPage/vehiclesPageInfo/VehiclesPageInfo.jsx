@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 
-import WithHockHelper from "../../../hockHelper";
+import { WithErrorApi } from "../../../hockHelper/WithErrorApi";
 
 import LinkGoBack from  "../../../components/linkGoBack";
 import VehiclesInfo from "../vehiclesPageInfo/vehiclesInfo";
@@ -102,4 +102,4 @@ VehiclesPageInfo.propTypes = {
     setErrorApi:PropTypes.func
 };
 
-export default WithHockHelper(VehiclesPageInfo);
+export default WithErrorApi(VehiclesPageInfo);

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 import { UseQueryParam } from "../../hooks/UseQueryParam";
-import WithErrorApi from "../../hockHelper";
+import { WithErrorApi }from "../../hockHelper/WithErrorApi";
 
 import StarShipsList from "../../components/starShipsPage/starShipsList";
 import StarShipsNavigation from "../../components/starShipsPage/starShipsNavigation";

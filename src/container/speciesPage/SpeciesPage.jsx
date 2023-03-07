@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 import { UseQueryParam } from "../../hooks/UseQueryParam";
-import WithErrorApi from "../../hockHelper";
+import { WithErrorApi} from "../../hockHelper/WithErrorApi";
 
 import SpeciesList from "../../components/speciesPage/speciesList";
 import SpeciesNavigation from "../../components/speciesPage/speciesNavigation"

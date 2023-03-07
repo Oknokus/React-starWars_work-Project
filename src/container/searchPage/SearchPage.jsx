@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useCallback, useState } from 'react';
 import { debounce } from 'lodash';
 
-import WithErrorApi from "../../hockHelper/WithErrorApi";
+import { WithErrorApi }from "../../hockHelper/WithErrorApi";
 
 import SearchPeopleInfo from "../../components/peoplePage/searchPeopleInfo";
 import SearchSpeciesInfo from "../../components/speciesPage/searchSpeciesInfo";
