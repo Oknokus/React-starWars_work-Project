@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState,  Suspense } from 'react';
 import { useSelector } from 'react-redux';
 
-import WithErrorApi from "../../../hockHelper/WithErrorApi";
+import { WithErrorApi } from "../../../hockHelper/WithErrorApi";
 
 import PersonInfo from "./personInfo";
 import PersonImg from "./personImg";

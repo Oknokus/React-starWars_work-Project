@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 import { UseQueryParam } from "../../hooks/UseQueryParam";
-import WithErrorApi from '../../hockHelper/WithErrorApi';
+import { WithErrorApi } from '../../hockHelper/WithErrorApi';
 
 import VehiclesList from '../../components/vehiclesPage/vehiclesList';
 import VehiclesNavigation from "../../components/vehiclesPage/vehiclesNavigation";
