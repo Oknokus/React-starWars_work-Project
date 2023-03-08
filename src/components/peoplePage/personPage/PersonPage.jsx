@@ -37,7 +37,7 @@ const PersonPage = ({ setErrorApi }) => {
             const urlPersonPage = document.location.href;   
             const id = personPageId(urlPersonPage);           
                                
-            const dataPerson = await getSwApiUrlData(SWAPI_URL_PEOPLE+id);                   
+            const dataPerson = await getSwApiUrlData(`${SWAPI_URL_PEOPLE}${id});                   
           
             if(dataPerson) {   
                     
