@@ -1,1 +1,0 @@
-export { SpeciesPage } from "./SpeciesPage";
