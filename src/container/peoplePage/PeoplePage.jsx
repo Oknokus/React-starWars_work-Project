@@ -31,7 +31,7 @@ const PeoplePage = ({ setErrorApi }) => {
             
             const id = getPeopleId(url);
             const img = getPeopleImg(id);
-
+            
             return {
                 name,
                 url,

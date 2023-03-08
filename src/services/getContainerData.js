@@ -22,7 +22,7 @@ export const getId = (url, category) => {
     .replace(SWAPI_URL+category, "")
     .replace(/\//g, "");
 
-    return id;
+    return Number(id);
 };
 
 export const getPeopleId = (url) => getId(url, SWAPI_URL_PATH_PEOPLE);
