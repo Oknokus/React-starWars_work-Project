@@ -39,9 +39,9 @@ export const VISIAL_GUIDE_EXTENSION = ".jpg";
 // export const PERSON_PAGE_PEOPLE_PATH_ID = "http://192.168.100.14:3000/people/";
 // export const PERSON_PAGE_SPECIES_PATH_ID = "http://192.168.100.14:3000/species/";
 export const PERSON_PAGE_STARSHPS_PATH_ID = "http://192.168.100.14:3000/starships/";
-export const PERSON_PAGE_VEHICLES_PATH_ID = "http//192.168.100.14:3000/vehicles/";
+export const PERSON_PAGE_VEHICLES_PATH_ID = "https//192.168.100.14:3000/vehicles/";
 
-export const PERSON_PAGE_PEOPLE_PATH_ID = "https://oknokus.github.io/react-starwars_work-project/people/";
+export const PERSON_PAGE_PEOPLE_PATH_ID = "http://oknokus.github.io/react-starwars_work-project/people/";
 export const PERSON_PAGE_SPECIES_PATH_ID = "https://oknokus.github.io/react-starwars_work-project/species/";
 // export const PERSON_PAGE_STARSHPS_PATH_ID = "https://oknokus.github.io/react-starwars_work-project/starships/";
 // export const PERSON_PAGE_VEHICLES_PATH_ID = "https://oknokus.github.io/react-starwars_work-project/vehicles/";
