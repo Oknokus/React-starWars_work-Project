@@ -11,7 +11,7 @@ import styles from './App.module.css';
 function App() { 
   return (   
    <>
-   <BrowserRouter basename={`/${REPO_NAME}/`}>
+   <BrowserRouter>
    <div className={styles.wrapper}>
    <Header />  
 

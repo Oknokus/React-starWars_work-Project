@@ -1,7 +1,6 @@
 {
   "name": "react-starwars_work-project",
-  "version": "0.1.0",
-  "homepage": "https://oknokus.github.io/react-starwars_work-project/",
+  "version": "0.1.0", 
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -50,16 +49,5 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  },
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Oknokus/react-starwars_work-project.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Oknokus/react-starwars_work-project/issues"
-  },
-  "description": ""
+  }
 }
