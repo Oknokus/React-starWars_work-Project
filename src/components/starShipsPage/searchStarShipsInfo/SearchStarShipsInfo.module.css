@@ -5,10 +5,6 @@
     list-style-type: none;
 }
 
-.list__item {
-
-}
-
 .list__item a {
     display: inline-flex;
     color: var(--color-black);

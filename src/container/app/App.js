@@ -4,6 +4,7 @@ import Header from "../../components/header/Header";
 
 import { routesConfig } from "../../routing/routesConfig";
 
+import { REPO_NAME } from "../../constants/repo_name";
 
 import styles from './App.module.css';
 
